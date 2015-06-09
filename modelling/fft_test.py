@@ -4,14 +4,15 @@ import scipy as sy
 import scipy.fftpack as syfp
 import pylab as pyl
 import pickle
+import os
+fn = os.path.join(os.path.dirname(__file__), '../resources/stats_pickle')
 
 # Read in data from file here
 array = np.loadtxt("data.csv")
 length = len(array)
-with open('stats_pickle', 'rb') as f:
-    mydata = pickle.load(open('stats_pickle', 'rb'))
-    print(mydata)
-    np_data = np.array(mydata)
+mydata = pickle.load(open(fn, 'rb'))
+print(mydata)
+np_data = np.array(mydata)
 # Create time data for x axis based on array length
 x = sy.linspace(0.00001, length*0.00001, num=length)
 

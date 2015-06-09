@@ -19,16 +19,17 @@ def doWork():
         str_response = response.read().decode('utf-8')
         obj = json.loads(str_response)
         important_info = [obj['time']['updatedISO'], obj['bpi']['GBP']['rate_float']]
+        pickle_fn = os.path.join(os.path.dirname(__file__), '../resources/stats_pickle')
         mydata = None
         try:
-            mydata = pickle.load(open('stats_pickle', 'rb'))
+            mydata = pickle.load(open(pickle_fn, 'rb'))
         except:
             pass
 
         if mydata is None:
             mydata = list()
         mydata.append(important_info)
-        with open('stats_pickle', 'wb') as f:
+        with open(pickle_fn, 'wb') as f:
             pickle.dump(mydata,f)
 
 l = task.LoopingCall(doWork)

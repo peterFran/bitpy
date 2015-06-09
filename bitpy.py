@@ -1,7 +1,4 @@
 __author__ = 'petermeckiffe'
-#%matplotlib inline
-import pandas
-import numpy as np
 import Quandl
 import matplotlib.pyplot as plt
 import matplotlib.dates as md

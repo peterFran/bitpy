@@ -6,7 +6,7 @@ import numpy as np
 import pickle
 import dateutil.parser
 import os
-fn = os.path.join(os.path.dirname(__file__), '../resources/stats_pickle')
+fn = os.path.join(os.path.dirname(__file__), '../resources/stats_pickle10')
 mydata = pickle.load(open(fn, 'rb'))
 print(mydata)
 np_data = np.array(mydata)
@@ -18,6 +18,6 @@ ax.xaxis.set_major_formatter(xfmt)
 y_formatter = matplotlib.ticker.ScalarFormatter(useOffset=False)
 ax.yaxis.set_major_formatter(y_formatter)
 plt.plot(dates ,np_data[:,1].astype(np.float32))
-fig_fn = os.path.join(os.path.dirname(__file__), '../images/plotc.png')
+fig_fn = os.path.join(os.path.dirname(__file__), '../images/plotj.png')
 plt.savefig(fig_fn)
 #plt.show()
